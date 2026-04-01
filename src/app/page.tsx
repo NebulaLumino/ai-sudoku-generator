@@ -35,7 +35,7 @@ export default function Home() {
       const res = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formData, systemPrompt: '' + sp_esc + '' }),
+        body: JSON.stringify({ formData, systemPrompt: "Generate a complete puzzle including: complete puzzle grid, solution grid, difficulty analysis (number of solving techniques required), hint system if applicable, step-by-step solution walkthrough for hardest puzzles, and construction notes." }),
       });
       const data = await res.json();
       if (data.error) { setError(data.error); return; }
@@ -52,7 +52,7 @@ export default function Home() {
       <div className="max-w-4xl mx-auto p-6">
         <header className="mb-8">
           <h1 className={"text-3xl font-bold bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent"}>
-            {'' + title_esc + ''}
+            "AI Sudoku, Crossword & Logic Puzzle Generator"
           </h1>
           <p className="text-zinc-400 mt-2 text-sm">Fill in the options below and generate your game content instantly.</p>
         </header>
